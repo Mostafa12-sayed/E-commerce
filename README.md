@@ -1,28 +1,26 @@
 # E-Commerce Platform
 
-A modern e-commerce platform built with Laravel, featuring social authentication, cart management, and integrated payment processing.
+A  e-commerce platform built with Laravel, featuring social authentication, cart management, and integrated payment processing paymob.
 
 ## Features
 
 - **User Authentication**
   - Traditional email/password registration and login
   - Social authentication via Facebook and Google
-  - Password recovery
-
 - **Product Management**
-  - Browse products by category
-  - Search functionality
+  - Browse products 
   - Product details with images, descriptions, and pricing
+    
 
 - **Shopping Cart**
   - Add/remove products
   - Update quantities
-  - Persistent cart (saved between sessions)
+  - Persistent cart (saved between database)
 
 - **Checkout Process**
   - Address information
   - Order summary
-  - Multiple payment options
+  - Multiple payment options (cash or card with paymob )
 
 - **Payment Processing**
   - Integration with PayMob payment gateway
@@ -42,8 +40,8 @@ A modern e-commerce platform built with Laravel, featuring social authentication
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/ecommerce-platform.git
-   cd ecommerce-platform
+   git clone https://github.com/Mostafa12-sayed/E-commerce
+   cd E-commerce
    ```
 
 2. Install PHP dependencies
@@ -102,7 +100,7 @@ A modern e-commerce platform built with Laravel, featuring social authentication
    ```
    FACEBOOK_CLIENT_ID=your_app_id
    FACEBOOK_CLIENT_SECRET=your_app_secret
-   FACEBOOK_REDIRECT_URI=https://your-domain.com/auth/facebook/callback
+   FACEBOOK_CALLBACK_REDIRECTS=https://your-domain.com/auth/facebook/callback
    ```
 
 ### Google Login
@@ -114,7 +112,7 @@ A modern e-commerce platform built with Laravel, featuring social authentication
    ```
    GOOGLE_CLIENT_ID=your_client_id
    GOOGLE_CLIENT_SECRET=your_client_secret
-   GOOGLE_REDIRECT_URI=https://your-domain.com/auth/google/callback
+   GOOFLE_CALLBACK_REDIRECTS=https://your-domain.com/auth/google/callback
    ```
 
 ## Usage Guide
@@ -123,11 +121,11 @@ A modern e-commerce platform built with Laravel, featuring social authentication
 
 1. Traditional Registration:
    - Navigate to `/register`
-   - Fill out the form with name, email, password, and phone number
+   - Fill out the form with name, email, password, and optional ( phone number , image )
    - Click "Register"
 
 2. Social Authentication:
-   - On the login page, click "Login with Facebook" or "Login with Google"
+   - On the login page, click "Login Facebook" or "Login Google"
    - Allow the requested permissions
    - You'll be automatically registered and logged in
 
@@ -135,20 +133,16 @@ A modern e-commerce platform built with Laravel, featuring social authentication
 
 1. Browse Products:
    - Visit the homepage to see featured products
-   - Use category navigation to filter products
-   - Use search functionality to find specific items
-
 2. Add to Cart:
-   - On product page, select quantity
-   - Click "Add to Cart"
-   - View cart summary in the navigation bar
+   - On homepage Click "Add to Cart"
+   - View cart summary in the sidbar
+   
 
 ### Cart Management
 
 1. View Cart:
    - Click on cart icon in navigation bar
    - Review all items in your cart
-
 2. Update Cart:
    - Adjust quantities using the quantity controls
    - Remove items by clicking the "Remove" button
@@ -157,11 +151,11 @@ A modern e-commerce platform built with Laravel, featuring social authentication
 ### Checkout Process
 
 1. Initiate Checkout:
-   - From the cart page, click "Proceed to Checkout"
+   - From the cart page, click "Checkout"
    - Fill in or select delivery address
 
 2. Choose Payment Method:
-   - Select "Cash on Delivery" or "Pay Online"
+   - Select "Cash on Delivery" or "Card Online"
    - For "Cash on Delivery", your order will be placed immediately
    - For "Pay Online", you'll proceed to payment
 
@@ -214,7 +208,3 @@ The application handles various error scenarios:
 - Uses events and listeners for order processing
 - Implements a robust payment flow with PayMob integration
 - Handles session management during external payment flows
-
-## License
-
-[MIT License](LICENSE)
